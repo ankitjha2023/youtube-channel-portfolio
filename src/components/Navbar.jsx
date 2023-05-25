@@ -3,9 +3,13 @@ import links from '../api/NavbarApi'
 import { Link } from 'react-router-dom'
 const Navbar = () => {
   const [isToggle, setToggle] = useState(false)
+  const [activeLink, setActiveLink] = useState('');
   const handleToggle = ()  =>{
     setToggle(!isToggle)
   }
+  const handleLinkClick = (path) => {
+    setActiveLink(path);
+  };
   return (
     <nav className="navbar navbar-expand-lg bg-light ">
       <div className="container">
@@ -23,23 +27,20 @@ const Navbar = () => {
           <i className={isToggle ? `fa-solid fa-xmark`: ` fa-solid fa-bars`}></i>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-            {
-              links.map((link) => {
-                return (
-                  <li className="nav-item mx-2 fs-5" key={link.name}>
-                    <Link className="nav-link" to={link.path}>
-                      {link.name}
-                    </Link>
-                  </li>
-                )
-              })
-            }
-
-
-
-          </ul>
-            <button className='btn btn-info'>Visit Channel</button>
+        <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+  {links.map((link) => (
+    <li className="nav-item mx-2 fs-5" key={link.name}>
+      <Link
+        className={`nav-link ${link.path === activeLink ? 'active' : ''}`}
+        to={link.path}
+        onClick={() => handleLinkClick(link.path)}
+      >
+        {link.name}
+      </Link>
+    </li>
+  ))}
+</ul>
+            <a href="https://bit.ly/3WqGjBJ" target='_blank'><button className='btn btn-info'>Visit Channel</button></a>
         </div>
       </div>
     </nav>
