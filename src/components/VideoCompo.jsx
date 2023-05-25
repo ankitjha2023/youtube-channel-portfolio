@@ -2,7 +2,7 @@ import React from 'react'
 
 const VideoCompo = ({imgSrc,alt, title,desc,videoSrc}) => {
   return (
-    <div className="col-md-4 my-5">
+    <div className="col-md-6 col-lg-4 my-3 my-md-5">
     <div className='card'>
 
       <img src={imgSrc} className="card-img-top" alt={alt} />

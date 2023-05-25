@@ -4,10 +4,10 @@ const Contact = () => {
   return (
     <section className='container my-5' id='contact'>
       <div className="row">
-       <div className="col-md-6">
+       <div className="col-md-12 col-lg-6">
        <img src="/contact.png" className="img-fluid" />
        </div>
-       <div className="col-md-6 mb-5">
+       <div className="col-md-12 col-lg-6 my-md-5">
         <h1 className='text-center fw-bold'>CONTACT ME</h1>
         <p className='text-center'>If you have any questions, feedback, or suggestions for our channel or website, please don't hesitate to contact us.</p>
 
